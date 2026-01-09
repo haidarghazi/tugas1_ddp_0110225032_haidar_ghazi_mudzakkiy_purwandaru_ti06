@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}About Me - Website Data Diri{% endblock %}
+
+{% block content %}
+<h1>👤 Tentang Saya</h1>
+<p>Halaman ini berisi informasi lengkap tentang pendidikan, pengalaman organisasi, dan keahlian saya.</p>
+
+<h2>📚 Riwayat Pendidikan</h2>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Tingkat Pendidikan</th>
+                <th>Institusi</th>
+                <th>Tahun Masuk</th>
+                <th>Tahun Lulus</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for edu in education %}
+            <tr>
+                <td><strong>{{ edu.level }}</strong></td>
+                <td>{{ edu.institution }}</td>
+                <td>{{ edu.start_year }}</td>
+                <td>{{ edu.end_year }}</td>
+                <td><span class="badge bg-success">{{ edu.achievement }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<h2>🏢 Pengalaman Organisasi</h2>
+<div class="row">
+    {% for org in organizations %}
+    <div class="col-md-4 mb-4">
+        <div class="skill-card">
+            <h5 style="color: #667eea;">{{ org.name }}</h5>
+            <p><strong>Deskripsi:</strong> {{ org.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h2>🎯 Ringkasan Keahlian</h2>
+<div class="row">
+    {% for skill in skill_summary %}
+    <div class="col-md-6 mb-3">
+        <div class="skill-card">
+            <h5 style="color: #667eea;">{{ skill.category }}</h5>
+            <p>{{ skill.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h2>🗣️ Bahasa yang Dikuasai</h2>
+<div class="row">
+    {% for lang in languages %}
+    <div class="col-md-6 mb-3">
+        <div class="skill-card">
+            <strong>{{ lang.name }}</strong>
+            <p style="margin: 10px 0 0 0; color: #667eea;">Level: <strong>{{ lang.level }}</strong></p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div style="text-align: center; margin-top: 40px;">
+    <a href="{% url 'home' %}" class="btn btn-secondary btn-lg">← Kembali ke Home</a>
+    <a href="{% url 'gallery' %}" class="btn btn-primary btn-lg">Lihat Gallery →</a>
+</div>
+{% endblock %}

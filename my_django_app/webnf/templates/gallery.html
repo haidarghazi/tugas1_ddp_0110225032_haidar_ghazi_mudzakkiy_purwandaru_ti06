@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gallery - Website Data Diri{% endblock %}
+
+{% block content %}
+<h1>🎨 Gallery</h1>
+<p>Koleksi karya, proyek, dan momen penting dalam perjalanan belajar saya.</p>
+
+<h2>🖼️ Galeri Proyek</h2>
+<div class="gallery-container">
+    <!-- ICSC -->
+    <div class="gallery-item">
+        <img src="{% static 'images/icsc.jpg' %}" alt="ICSC" class="gallery-image-img" />
+        <div class="gallery-content">
+            <div class="gallery-title">ICSC</div>
+            <div class="gallery-description">International Competition/Project</div>
+        </div>
+    </div>
+
+    <!-- Kholid -->
+    <div class="gallery-item">
+        <img src="{% static 'images/kholid.jpg' %}" alt="Kholid" class="gallery-image-img" />
+        <div class="gallery-content">
+            <div class="gallery-title">Kholid</div>
+            <div class="gallery-description">Project/Portfolio Item</div>
+        </div>
+    </div>
+
+    <!-- Battle Config -->
+    <div class="gallery-item">
+        <img src="{% static 'images/battle_config.jpg' %}" alt="Battle Config" class="gallery-image-img" />
+        <div class="gallery-content">
+            <div class="gallery-title">Battle Config</div>
+            <div class="gallery-description">Configuration/Project</div>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; margin-top: 40px;">
+    <a href="{% url 'home' %}" class="btn btn-secondary btn-lg">← Kembali ke Home</a>
+    <a href="{% url 'about_me' %}" class="btn btn-primary btn-lg">← About Me</a>
+</div>
+{% endblock %}
